@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<form method="post" action="#">
+	<level>Excercise</level>
+
+	<fieldset id="excercises">
+		<div class="excercise">
+			<input type="text" name="excercise[]">
+			<button class="remove">x</button>
+		</div>
+	</fieldset>
+	<button id="add_excercise">Add Excercise</button>
+</form>
+
+<script type="text/javascript">
+	$("#add_excercise").click(function(){
+		$("#excercises").append('<div class="excercise"><input type="text" name="excercise[]"><button class="remove">x</button></div>');
+		return false;
+	});
+
+	$("#excercises").on('click','.remove',function(){
+		$(this).parent().remove();
+		return false;
+	});
+</script>
+</body>
+</html>
+
+
