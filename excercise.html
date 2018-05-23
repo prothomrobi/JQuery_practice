@@ -5,28 +5,35 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	<form method="post" action="#">
-	<level>Excercise</level>
+	
+	<level>Age Calculator</level>
+	<input type="text" id="age-input" value="08/17/1993">
+	<button onclick="getDate()">Click Me</button>
+	<div id="result"></div>
+	<div id="result1"></div>
+	<div id="display-data"></div>
 
-	<fieldset id="excercises">
-		<div class="excercise">
-			<input type="text" name="excercise[]">
-			<button class="remove">x</button>
-		</div>
-	</fieldset>
-	<button id="add_excercise">Add Excercise</button>
-</form>
 
 <script type="text/javascript">
-	$("#add_excercise").click(function(){
-		$("#excercises").append('<div class="excercise"><input type="text" name="excercise[]"><button class="remove">x</button></div>');
-		return false;
-	});
 
-	$("#excercises").on('click','.remove',function(){
-		$(this).parent().remove();
-		return false;
-	});
+	function getDate(name,name1){
+		document.getElementById("result1").innerHTML = getAge(document.getElementById("age-input").value);
+	} 
+
+	function getAge(date){
+		var today = new Date();
+		var birthDate = new Date(date);
+
+		var age = today.getFullYear() - birthDate.getFullYear();
+
+		var month = today.getMonth() - birthDate.getMonth();
+
+		if(month < 0 || (month === 0 && today.getDate() < birthDate.getDate())){
+			age--;
+		}
+			return age;
+
+	}
 </script>
 </body>
 </html>
