@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>Simple ajax request for json data</h2>
+	
+
+
+<script>
+
+	var createList = function(list) {
+    var $body = $('body');
+    var $ul = $body.append('<ul/>');
+    $.each(list, function(index, value) {
+        $ul.append($('<li/>').text(index + " - " + value));
+    });
+  };
+
+  $(function() {
+ 
+    $.ajax({
+        url: 'http://www.mocky.io/v2/54936e28827817b013aa9004',
+        contentType: 'application/json',
+        dataType: 'jsonp', 
+        contentType: 'json',
+        success: function(json) {
+            console.log(json);
+            createList(json.data);
+        }
+    });
+        
+});
+
+</script>
+</body>
+</html>
+
+
