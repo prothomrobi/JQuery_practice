@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>JQuery AJAX request</h2>
+	<a href="#" onclick="return getSuccessOutput();"> test success </a> | 
+	<a href="#" onclick="return getFailOutput(); return false;"> test failure</a>
+	<div id="output">waiting for action</div>
+
+<script>
+
+	function getSuccessOutput(){
+		$.ajax({
+			url:'/echo/js/?js=hello%20world!',
+			complete: function(response){
+				$('#output').html(response.responseText);
+			},
+			error: function(){
+				$('#output').html('Bummer: there was an error');
+			}
+		});
+		return false;
+	}
+
+	function getFailOutput() {
+    $.ajax({
+        url:'myAjax.php',
+        success: function (response) {
+            console.log(data, response);
+            $('#output').html(response);
+        },
+        error: function () {
+            $('#output').html('Bummer: there was an error!');
+        },
+    });
+    return false;
+}
+</script>
+</body>
+</html>
+
+
