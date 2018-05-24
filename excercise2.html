@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>Add/Remove Input Field</h2>
+	<form role="form" action="" method="post">
+		<label>Stuff</label>
+		<div class="multi-field-wrapper">
+			<div class="multi-fields">
+				<div class="multi-field">
+					<input type="text" name="stuff[]">
+					<button type="button" class="remove-field">Remove</button>
+				</div>
+			</div>
+			<button type="button" class="add-field">Add Field</button>
+		</div>
+	</form>
+
+
+<script>
+
+
+	$('.multi-field-wrapper').each(function() {
+    var $wrapper = $('.multi-fields', this);
+    $(".add-field", $(this)).click(function(e) {
+        $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+    });
+    $('.multi-field .remove-field', $wrapper).click(function() {
+        if ($('.multi-field', $wrapper).length > 1)
+            $(this).parent('.multi-field').remove();
+    });
+});
+
+</script>
+</body>
+</html>
+
+
