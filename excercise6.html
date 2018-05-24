@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>Hiding select option using jquery</h2>
+	<form>
+	    <select>
+	        <option value="0">Zeroth</option>
+	        <option value="1">First</option>
+	        <option value="2">Second</option>
+	        <option value="3">Third</option>
+	    </select>
+    	<button type="button" id="detach-odd-button">Detach odd options!</button>
+    	<button type="button" id="attach-all-button">Attach all options back.</button>
+	</form>
+
+
+<script>
+
+	$(document).ready(function(){
+		var detachedOption = jQuery();
+		$("#detach-odd-button").on("click", function(){
+			var detachableOption = $(this).closest("form").find("option:odd"); 
+		detachableOption.detech();
+		detachedOption = detachedOption.add(detachableOption);
+	});
+		
+	$("#attach-all-button").on("click", function(){
+		$(this).closest("form").find("select").append(detachedOption);
+
+			detachedOption = jQuery();
+	});
+	
+});
+
+</script>
+</body>
+</html>
+
+

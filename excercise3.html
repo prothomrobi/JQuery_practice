@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>Object Practice</h2>
+	<a class="blue" href="#"> Click me for blue</a> 
+	<a class="red" href="#"> Click me for red</a>
+	<h2>Blues  Reds</h2>
+	<span class="blueSpan"></span><br>
+	<span class="redSpan"></span>
+
+
+<script>
+
+	var colors = [];
+	var x = {};
+
+	x.reds = ["rose","pink","brick"];
+	x.blues = ["baby","dogler","cerulean"];
+	x.greens = ["spring", "dinosaur", "turquoise"];
+
+	colors.push(x);
+
+	$('.blue').click(function(){
+		var blues =x.blues;
+		var bluesPlus = [];
+		$.each(blues, function(i, v){
+			var blues = v + " blue, ";
+			bluesPlus.push(blues)
+		});
+		$('.blueSpan').append(bluesPlus);
+	});
+
+	$('.red').click(function(){
+		var reds =x.reds;
+		var redsPlus = [];
+		$.each(reds, function(i, v){
+			var reds = v + " blue, ";
+			redsPlus.push(reds)
+		});
+		$('.redSpan').append(redsPlus);
+	});
+	
+
+</script>
+</body>
+</html>
+
+
