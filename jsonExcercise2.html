@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Excercise</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+</head>
+<body>
+	
+	<h2>Select Option in dropdown by text</h2>
+	<select name="sel" id="MySelect">
+	  <option value="">Select One</option>
+	  <option value="1">One</option>
+	  <option value="2">Two</option>
+	  <option value="3">Three</option>
+	  <option value="4">Four</option>
+	  <option value="5">Five</option>
+	  <option value="6">Six</option>
+	</select>
+	<br>
+	<br>Select By Text:
+	<br>
+	<input type="text" name="selText" value="Six">
+	<input type="button" name="selectNow" value="Select Now">
+
+
+<script>
+
+	var person = new Object();
+		person.firstname = "Robi";
+		person.lastname = "Alam";
+		person.age = 24;
+		person.email = "robi@email.com";
+		person.hobbies = ['computing','chess','soccer'];
+		person.printName = function(firstname) {
+			console.log(firstname);
+		};
+		person.car = new Object();
+		person.car.make = "Ford";
+		person.car.model = "Fusion";
+		person.car.year = 2012;
+		person.car.color = "Blue";
+
+		alert(JSON.stringify(person));
+
+</script>
+</body>
+</html>
+
+
